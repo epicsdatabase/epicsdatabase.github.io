@@ -1,9 +1,84 @@
 <!DOCTYPE html>
-<html>
-	<body>
-	
-		<h1>EPICS Database Website</h1>
-		<p>Hiii</p>
-	
-	</body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Switching with Drop-down Menu</title>
+<style>
+  /* Styling for the drop-down menu */
+  #dropdown {
+    background-color: #ccc;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  /* Styling for the content */
+  .content {
+    margin-top: 50px; /* Adjust according to the height of your dropdown */
+    padding: 20px;
+  }
+  /* Hide all pages initially */
+  .page {
+    display: none;
+  }
+  /* Show only the selected page */
+  .page.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<!-- Drop-down menu -->
+<div id="dropdown">
+  <select id="pageSelect" onchange="changePage(this.value)">
+    <option value="page1">Page 1</option>
+    <option value="page2">Page 2</option>
+    <option value="page3">Page 3</option>
+    <option value="page3">Page 4</option>
+  </select>
+</div>
+
+<!-- Content for each page -->
+<div class="content">
+  <!-- Page 1 -->
+  <div id="page1" class="page active">
+    <h2>Page 1 Content</h2>
+    <p>This is the content for Page 1.</p>
+  </div>
+
+  <!-- Page 2 -->
+  <div id="page2" class="page">
+    <h2>Page 2 Content</h2>
+    <p>This is the content for Page 2.</p>
+  </div>
+
+  <!-- Page 3 -->
+  <div id="page3" class="page">
+    <h2>Page 3 Content</h2>
+    <p>This is the content for Page 3.</p>
+  </div>
+</div>
+
+<script>
+function changePage(pageId) {
+  // Hide all pages
+  var pages = document.querySelectorAll('.page');
+  pages.forEach(function(page) {
+    page.classList.remove('active');
+  });
+
+  // Show the selected page
+  var selectedPage = document.getElementById(pageId);
+  if (selectedPage) {
+    selectedPage.classList.add('active');
+  }
+}
+</script>
+
+</body>
 </html>
