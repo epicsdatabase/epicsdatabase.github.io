@@ -16,9 +16,26 @@
     left: 0;
     z-index: 9999;
   }
+  /* Styling for the title */
+  #title {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  /* Styling for the buttons */
+  #buttons {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+  }
+  #buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
   /* Styling for the content */
   .content {
-    margin-top: 50px; /* Adjust according to the height of your dropdown */
+    margin-top: 10px; /* Adjust according to the height of your dropdown and title */
     padding: 20px;
   }
   /* Hide all pages initially */
@@ -33,34 +50,39 @@
 </head>
 <body>
 
-<!-- Drop-down menu -->
+<!-- Grey decorative rectangle -->
 <div id="dropdown">
-  <select id="pageSelect" onchange="changePage(this.value)">
-    <option value="page1">Page 1</option>
-    <option value="page2">Page 2</option>
-    <option value="page3">Page 3</option>
-    <option value="page3">Page 4</option>
-  </select>
+  <div id="title">Epics Online Database</div>
+</div>
+
+<!-- Buttons -->
+<div id="buttons">
+  <button onclick="changePage('page1')">Data Entry</button>
+  <button onclick="changePage('page2')">Data Display</button>
+  <button onclick="changePage('page3')">Team Members</button>
 </div>
 
 <!-- Content for each page -->
 <div class="content">
-  <!-- Page 1 -->
+  <!-- Page 1 (Data Entry) -->
   <div id="page1" class="page active">
-    <h2>Page 1 Content</h2>
-    <p>This is the content for Page 1.</p>
+    <h2>Data Entry</h2>
+    <p>This is the content for Data Entry.</p>
+    <!-- Additional buttons for file import and delete -->
+    <button onclick="importFile()">Import File</button>
+    <button onclick="deleteFile()">Delete File</button>
   </div>
 
-  <!-- Page 2 -->
+  <!-- Page 2 (Data Display) -->
   <div id="page2" class="page">
-    <h2>Page 2 Content</h2>
-    <p>This is the content for Page 2.</p>
+    <h2>Data Display</h2>
+    <p>Please participate. We're being graded on this - Felicity</p>
   </div>
 
-  <!-- Page 3 -->
+  <!-- Page 3 (Team Members) -->
   <div id="page3" class="page">
-    <h2>Page 3 Content</h2>
-    <p>This is the content for Page 3.</p>
+    <h2>Team Members</h2>
+    <p>This is the content for Team Members.</p>
   </div>
 </div>
 
@@ -77,6 +99,16 @@ function changePage(pageId) {
   if (selectedPage) {
     selectedPage.classList.add('active');
   }
+}
+
+function importFile() {
+  // Add functionality for importing file here
+  alert("Functionality for importing file will be implemented here.");
+}
+
+function deleteFile() {
+  // Add functionality for deleting file here
+  alert("Functionality for deleting file will be implemented here.");
 }
 </script>
 
